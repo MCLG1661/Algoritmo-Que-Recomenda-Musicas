@@ -1,0 +1,882 @@
+{
+  "style": {
+    "font-family": "sans-serif",
+    "background-color": "#ffffff",
+    "background-image": "",
+    "background-size": "100%",
+    "node-color": "#ffffff",
+    "border-width": 4,
+    "border-color": "#000000",
+    "radius": 50,
+    "node-padding": 5,
+    "node-margin": 2,
+    "outside-position": "auto",
+    "node-icon-image": "",
+    "node-background-image": "",
+    "icon-position": "inside",
+    "icon-size": 64,
+    "caption-position": "inside",
+    "caption-max-width": 200,
+    "caption-color": "#000000",
+    "caption-font-size": 50,
+    "caption-font-weight": "normal",
+    "label-position": "inside",
+    "label-display": "pill",
+    "label-color": "#000000",
+    "label-background-color": "#ffffff",
+    "label-border-color": "#000000",
+    "label-border-width": 4,
+    "label-font-size": 40,
+    "label-padding": 5,
+    "label-margin": 4,
+    "directionality": "directed",
+    "detail-position": "inline",
+    "detail-orientation": "parallel",
+    "arrow-width": 5,
+    "arrow-color": "#000000",
+    "margin-start": 5,
+    "margin-end": 5,
+    "margin-peer": 20,
+    "attachment-start": "normal",
+    "attachment-end": "normal",
+    "relationship-icon-image": "",
+    "type-color": "#000000",
+    "type-background-color": "#ffffff",
+    "type-border-color": "#000000",
+    "type-border-width": 0,
+    "type-font-size": 16,
+    "type-padding": 5,
+    "property-position": "outside",
+    "property-alignment": "colon",
+    "property-color": "#000000",
+    "property-font-size": 16,
+    "property-font-weight": "normal"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "position": {
+        "x": -3565.817790054148,
+        "y": -6849.463572253737
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#fcdc00"
+      },
+      "labels": [
+        "Usuário"
+      ],
+      "properties": {
+        "ID": "1",
+        "Nome": "João",
+        "Idade": "25",
+        "Cidade": "São Paulo"
+      }
+    },
+    {
+      "id": "n1",
+      "position": {
+        "x": -3238.4884501301663,
+        "y": -7798.165879437271
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fcdc00",
+        "label-font-size": 40,
+        "radius": 50
+      },
+      "labels": [
+        "Usuário"
+      ],
+      "properties": {
+        "ID": "2",
+        "Nome": "Maria",
+        "Idade": "30",
+        "Cidade": "Rio de Janeiro"
+      }
+    },
+    {
+      "id": "n2",
+      "position": {
+        "x": -2133.1041992995633,
+        "y": -6631.602185943513
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#fcdc00"
+      },
+      "labels": [
+        "Usuário"
+      ],
+      "properties": {
+        "ID": "3",
+        "Nome": "Pedro",
+        "Idade": "22",
+        "Cidade": "Belo Horizonte"
+      }
+    },
+    {
+      "id": "n3",
+      "position": {
+        "x": -2165.018175762327,
+        "y": -5684.0094418811195
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fcdc00",
+        "label-font-size": 40,
+        "radius": 50
+      },
+      "labels": [
+        "Usuário"
+      ],
+      "properties": {
+        "ID": "4",
+        "Nome": "Ana",
+        "Idade": "28",
+        "Cidade": "Curitiba"
+      }
+    },
+    {
+      "id": "n4",
+      "position": {
+        "x": -1912.8283467596702,
+        "y": -5458.308072806092
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#fcdc00"
+      },
+      "labels": [
+        "Usuário"
+      ],
+      "properties": {
+        "ID": "5",
+        "Nome": "Carlos",
+        "Idade": "35",
+        "Cidade": "Porto Alegre"
+      }
+    },
+    {
+      "id": "n5",
+      "position": {
+        "x": -3969.972806901354,
+        "y": -5458.308072806092
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#9f0500"
+      },
+      "labels": [
+        "Gênero"
+      ],
+      "properties": {
+        "G": "1",
+        "Tipo": "Rock ",
+        "Descição": "Rock Music"
+      }
+    },
+    {
+      "id": "n6",
+      "position": {
+        "x": -2344.8679185217416,
+        "y": -7234.8185036293025
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#9f0500"
+      },
+      "labels": [
+        "Gênero"
+      ],
+      "properties": {
+        "G": "2",
+        "Tipo": "Pop ",
+        "Descição": "Pop Music"
+      }
+    },
+    {
+      "id": "n7",
+      "position": {
+        "x": -1304.0512181438994,
+        "y": -6157.674274642052
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#9f0500"
+      },
+      "labels": [
+        "Gênero"
+      ],
+      "properties": {
+        "G": "3",
+        "Tipo": "Jazz ",
+        "Descição": "Jazz Music"
+      }
+    },
+    {
+      "id": "n8",
+      "position": {
+        "x": -3212.7903907045697,
+        "y": -6631.602185943513
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#9f0500"
+      },
+      "labels": [
+        "Gênero"
+      ],
+      "properties": {
+        "G": "4",
+        "Tipo": "Hip Hop ",
+        "Descição": "Hip Hop Music"
+      }
+    },
+    {
+      "id": "n9",
+      "position": {
+        "x": -2056.3856998426236,
+        "y": -7097.558397989779
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#9f0500"
+      },
+      "labels": [
+        "Gênero"
+      ],
+      "properties": {
+        "G": "5",
+        "Tipo": "Eletrônica ",
+        "Descição": "Eletrônica Music"
+      }
+    },
+    {
+      "id": "n10",
+      "position": {
+        "x": -2491.0320927394955,
+        "y": -6662.912005092908
+      },
+      "caption": "",
+      "style": {
+        "radius": 50,
+        "node-color": "#009ce0"
+      },
+      "labels": [
+        "Artista"
+      ],
+      "properties": {
+        "Nome": "Daft Punk",
+        "País": "França",
+        "Ano de Formação": "1993"
+      }
+    },
+    {
+      "id": "n11",
+      "position": {
+        "x": -2837.688844643944,
+        "y": -6415.037207351966
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#009ce0"
+      },
+      "labels": [
+        "Artista"
+      ],
+      "properties": {
+        "Nome": "Dr. Dre",
+        "País": "USA",
+        "Ano de Formação": "1985"
+      }
+    },
+    {
+      "id": "n12",
+      "position": {
+        "x": -2602.9914326499297,
+        "y": -7011.234411043156
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#009ce0"
+      },
+      "labels": [
+        "Artista"
+      ],
+      "properties": {
+        "Nome": "Michael Jackson",
+        "País": "USA",
+        "Ano de Formação": "1964"
+      }
+    },
+    {
+      "id": "n13",
+      "position": {
+        "x": -3597.6806708278527,
+        "y": -5495.853390859559
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#009ce0"
+      },
+      "labels": [
+        "Artista"
+      ],
+      "properties": {
+        "Nome": "The Beatles",
+        "País": "UK",
+        "Ano de Formação": "1960"
+      }
+    },
+    {
+      "id": "n14",
+      "position": {
+        "x": -1912.8283467596702,
+        "y": -6224.459187154543
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#009ce0"
+      },
+      "labels": [
+        "Artista"
+      ],
+      "properties": {
+        "Nome": "Miles Davis",
+        "País": "USA",
+        "Ano de Formação": "1945"
+      }
+    },
+    {
+      "id": "n15",
+      "position": {
+        "x": -2661.8955619839744,
+        "y": -5293.687379576731
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "Let It Be",
+        "Duração": "4:05",
+        "Ano de Lançamento": "1970",
+        "Popularidade": "82",
+        "ID": "2"
+      }
+    },
+    {
+      "id": "n16",
+      "position": {
+        "x": -3090.040088995886,
+        "y": -6224.459187154543
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "Thriller",
+        "Duração": "6:35",
+        "Ano de Lançamento": "1982",
+        "Popularidade": "94",
+        "ID": "4"
+      }
+    },
+    {
+      "id": "n17",
+      "position": {
+        "x": -2165.018175762327,
+        "y": -6347.012852904103
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "So What",
+        "Duração": "9:08",
+        "Ano de Lançamento": "1959",
+        "Popularidade": "78",
+        "ID": "5"
+      }
+    },
+    {
+      "id": "n18",
+      "position": {
+        "x": -1778.6298142571914,
+        "y": -6515.452303572793
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "Kind Of Blue",
+        "Duração": "9:38",
+        "Ano de Lançamento": "1959",
+        "Popularidade": "82",
+        "ID": "6"
+      }
+    },
+    {
+      "id": "n19",
+      "position": {
+        "x": -3597.6806708278527,
+        "y": -6157.674274642052
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "Billie Jean",
+        "Duração": "4:09",
+        "Ano de Lançamento": "1982",
+        "Popularidade": "95",
+        "ID": "3"
+      }
+    },
+    {
+      "id": "n20",
+      "position": {
+        "x": -2602.9914326499297,
+        "y": -6022.430497252899
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "Still D.R.E.",
+        "Duração": "4:46",
+        "Ano de Lançamento": "1999",
+        "Popularidade": "88",
+        "ID": "7"
+      }
+    },
+    {
+      "id": "n21",
+      "position": {
+        "x": -2696.210588393854,
+        "y": -7598.042820985963
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "The Next Episode",
+        "Duração": "3:08",
+        "Ano de Lançamento": "1999",
+        "Popularidade": "86",
+        "ID": "8"
+      }
+    },
+    {
+      "id": "n22",
+      "position": {
+        "x": -3121.4376447859863,
+        "y": -5853.224610531322
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "One More Time",
+        "Duração": "5:33",
+        "Ano de Lançamento": "2000",
+        "Popularidade": "90",
+        "ID": "9"
+      }
+    },
+    {
+      "id": "n23",
+      "position": {
+        "x": -911.398486072961,
+        "y": -6970.193034324529
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "Harder Better Faster",
+        "Duração": "4:13",
+        "Ano de Lançamento": "2001",
+        "Popularidade": "89",
+        "ID": "10"
+      }
+    },
+    {
+      "id": "n24",
+      "position": {
+        "x": -4176.21238520176,
+        "y": -5792.229120792637
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#fa28ff"
+      },
+      "labels": [
+        "Música"
+      ],
+      "properties": {
+        "Título": "Hey Jude",
+        "Duração": "7:18",
+        "Ano de Lançamento": "1968",
+        "Popularidade": "85",
+        "ID": "1"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "n0",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "5",
+        "Dispositivo": "Celular"
+      },
+      "fromId": "n0",
+      "toId": "n24"
+    },
+    {
+      "id": "n1",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "3",
+        "Dispositivo": "Desktop"
+      },
+      "fromId": "n0",
+      "toId": "n19"
+    },
+    {
+      "id": "n2",
+      "type": "Gostou",
+      "style": {},
+      "properties": {},
+      "fromId": "n0",
+      "toId": "n22"
+    },
+    {
+      "id": "n3",
+      "type": "Segue",
+      "style": {},
+      "properties": {},
+      "fromId": "n0",
+      "toId": "n10"
+    },
+    {
+      "id": "n4",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "8",
+        "Dispositivo": "Celular"
+      },
+      "fromId": "n1",
+      "toId": "n19"
+    },
+    {
+      "id": "n5",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "8",
+        "Dispositivo": "Tablet"
+      },
+      "fromId": "n1",
+      "toId": "n16"
+    },
+    {
+      "id": "n6",
+      "type": "Gostou",
+      "style": {},
+      "properties": {},
+      "fromId": "n1",
+      "toId": "n20"
+    },
+    {
+      "id": "n7",
+      "type": "Segue",
+      "style": {},
+      "properties": {},
+      "fromId": "n1",
+      "toId": "n12"
+    },
+    {
+      "id": "n8",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "10",
+        "Dispositivo": "Desktop"
+      },
+      "fromId": "n2",
+      "toId": "n17"
+    },
+    {
+      "id": "n9",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "7",
+        "Dispositivo": "Celular"
+      },
+      "fromId": "n2",
+      "toId": "n18"
+    },
+    {
+      "id": "n10",
+      "type": "Gostou",
+      "style": {},
+      "properties": {},
+      "fromId": "n2",
+      "toId": "n22"
+    },
+    {
+      "id": "n11",
+      "type": "Segue",
+      "style": {},
+      "properties": {},
+      "fromId": "n2",
+      "toId": "n14"
+    },
+    {
+      "id": "n12",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "15",
+        "Dispositivo": "Celular"
+      },
+      "fromId": "n3",
+      "toId": "n23"
+    },
+    {
+      "id": "n13",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "12",
+        "Dispositivo": "Desktop"
+      },
+      "fromId": "n3",
+      "toId": "n22"
+    },
+    {
+      "id": "n14",
+      "type": "Gostou",
+      "style": {},
+      "properties": {},
+      "fromId": "n3",
+      "toId": "n20"
+    },
+    {
+      "id": "n15",
+      "type": "Segue",
+      "style": {},
+      "properties": {},
+      "fromId": "n3",
+      "toId": "n10"
+    },
+    {
+      "id": "n16",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "6",
+        "Dispositivo": "Desktop"
+      },
+      "fromId": "n4",
+      "toId": "n24"
+    },
+    {
+      "id": "n17",
+      "type": "Ouviu",
+      "style": {},
+      "properties": {
+        "Vezes": "4",
+        "Dispositivo": "Celular"
+      },
+      "fromId": "n4",
+      "toId": "n15"
+    },
+    {
+      "id": "n18",
+      "type": "Gostou",
+      "style": {},
+      "properties": {},
+      "fromId": "n4",
+      "toId": "n17"
+    },
+    {
+      "id": "n19",
+      "type": "Segue",
+      "style": {},
+      "properties": {},
+      "fromId": "n4",
+      "toId": "n13"
+    },
+    {
+      "id": "n20",
+      "type": "Toca Esse Estilo",
+      "style": {},
+      "properties": {},
+      "fromId": "n13",
+      "toId": "n5"
+    },
+    {
+      "id": "n21",
+      "type": "Toca Esse Estilo",
+      "style": {},
+      "properties": {},
+      "fromId": "n12",
+      "toId": "n6"
+    },
+    {
+      "id": "n22",
+      "type": "Toca Esse Estilo",
+      "style": {},
+      "properties": {},
+      "fromId": "n11",
+      "toId": "n8"
+    },
+    {
+      "id": "n23",
+      "type": "Toca Esse Estilo",
+      "style": {},
+      "properties": {},
+      "fromId": "n14",
+      "toId": "n7"
+    },
+    {
+      "id": "n24",
+      "type": "Toca Esse Estilo",
+      "style": {},
+      "properties": {},
+      "fromId": "n10",
+      "toId": "n9"
+    },
+    {
+      "id": "n25",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n24",
+      "toId": "n13"
+    },
+    {
+      "id": "n26",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n15",
+      "toId": "n13"
+    },
+    {
+      "id": "n27",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n16",
+      "toId": "n12"
+    },
+    {
+      "id": "n28",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n19",
+      "toId": "n12"
+    },
+    {
+      "id": "n29",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n22",
+      "toId": "n10"
+    },
+    {
+      "id": "n30",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n23",
+      "toId": "n10"
+    },
+    {
+      "id": "n31",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n17",
+      "toId": "n14"
+    },
+    {
+      "id": "n32",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n18",
+      "toId": "n14"
+    },
+    {
+      "id": "n33",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n20",
+      "toId": "n11"
+    },
+    {
+      "id": "n34",
+      "type": "Tocada Por",
+      "style": {},
+      "properties": {},
+      "fromId": "n21",
+      "toId": "n11"
+    }
+  ]
+}
