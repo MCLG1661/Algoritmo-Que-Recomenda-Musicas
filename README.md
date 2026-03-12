@@ -17,7 +17,7 @@ Sistema que utiliza grafos para recomendar músicas baseado em padrões de escut
 ### Queries de recomendação
 ```cypher
 // Cole aqui uma query exemplo
-
+```
 ## 📊 Modelo de Dados
 https://docs/diagrama.png
 
