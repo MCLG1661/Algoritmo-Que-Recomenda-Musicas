@@ -1,5 +1,15 @@
 # Algoritmo de Recomendação de Músicas com Neo4j
 
+## 📚 Contexto Acadêmico
+
+Disciplina : Primeiros Passos com Cypher e Neo4j
+
+Professor : Matheus Ferreira
+
+Período : Primeiro Semestre/2026
+
+Curso : Bootcamp Neo4j - Análise de Dados com Grafos
+
 ## 📋 Sobre
 Sistema que utiliza grafos para recomendar músicas baseado em padrões de escuta.
 
@@ -26,5 +36,14 @@ https://docs/diagrama.png
 - Neo4j
 - Graph Data Science Library
 - Cypher
+
+## Autor
+- Marcus Guedes
+- Linkedin : https://www.linkedin.com/in/marcusguedes/
+- GitHub : https://github.com/MCLG1661
+
+## 📅 Data de Entrega
+
+12/03/2026 
 
 
