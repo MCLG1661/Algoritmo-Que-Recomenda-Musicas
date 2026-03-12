@@ -17,3 +17,39 @@ Sistema que utiliza grafos para recomendar músicas baseado em padrões de escut
 ### Queries de recomendação
 ```cypher
 // Cole aqui uma query exemplo
+
+## 📊 Modelo de Dados
+https://docs/diagrama.png
+
+## 🛠️ Tecnologias
+
+- Neo4j
+- Graph Data Science Library
+- Cypher
+
+
+## Passo a Passo para Você Agora:
+
+### 1. **No GitHub:**
+```bash
+# Crie uma pasta local
+mkdir sistema-recomendacao-musical
+cd sistema-recomendacao-musical
+
+# Inicie o git
+git init
+
+# Crie os arquivos
+mkdir data queries gds docs
+
+# Adicione os códigos Cypher em arquivos .cypher
+echo "// Seu código aqui" > data/schema.cypher
+
+# Commit
+git add .
+git commit -m "Initial commit"
+
+# Conecte ao GitHub
+git remote add origin https://github.com/seu-usuario/sistema-recomendacao-musical.git
+git push -u origin main
+
