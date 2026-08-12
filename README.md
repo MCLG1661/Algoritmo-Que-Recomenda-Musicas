@@ -110,9 +110,11 @@ Grafo Neo4j
 
 ## 🖼️ Modelo do Grafo
 
+## 🕸️ Visualização do Grafo
+
 <p align="center">
-  <img src="Algoritmo%20de%20Recomendação%20de%20Música.png"
-       alt="Modelo em grafo do sistema de recomendação musical"
+  <img src="./music-recommendation-graph.png"
+       alt="Grafo do Sistema de Recomendação Musical"
        width="850">
 </p>
 
