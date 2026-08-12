@@ -108,8 +108,6 @@ Grafo Neo4j
 
 ---
 
-## 🖼️ Modelo do Grafo
-
 ## 🕸️ Visualização do Grafo
 
 <p align="center">
