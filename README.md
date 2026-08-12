@@ -113,7 +113,7 @@ Grafo Neo4j
 ## 🕸️ Visualização do Grafo
 
 <p align="center">
-  <img src="./music-recommendation-graph.png"
+  <img src="./Algoritmo  de Recomendação de Música.png"
        alt="Grafo do Sistema de Recomendação Musical"
        width="850">
 </p>
