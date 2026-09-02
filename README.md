@@ -1,6 +1,6 @@
-# 🎵  Algoritmo de Recomendação de Músicas com Neo4j
+# 🎵 Algoritmo de Recomendação de Músicas com Neo4j
 
-*Sistema de recomendação de músicas utilizando Graph Data Science*
+> Sistema de recomendação musical baseado em grafos, utilizando **Neo4j, Cypher e Graph Data Science** para explorar similaridade, comunidades, centralidade e conexões entre usuários e músicas.
 
 ![Neo4j](https://img.shields.io/badge/Neo4j-Graph%20Database-4581C3?logo=neo4j&logoColor=white)
 ![Cypher](https://img.shields.io/badge/Cypher-Query%20Language-018BFF)
@@ -12,98 +12,102 @@
 ![DIO](https://img.shields.io/badge/DIO-Neo4j%20Bootcamp-5A0FC8)
 ![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
 
-Sistema de recomendação de músicas desenvolvido com **Neo4j, Cypher e Graph Data Science (GDS)**.
+---
 
-O projeto utiliza relacionamentos entre usuários, músicas, artistas, gêneros e padrões 
-de escuta para explorar diferentes estratégias de recomendação baseadas em grafos.
+## 📌 Sobre o Projeto
 
-Além de consultas Cypher, o projeto aplica algoritmos como **PageRank, Louvain, 
-Jaccard Similarity e Shortest Paths**, culminando em uma abordagem híbrida de recomendação.
+O **Algoritmo de Recomendação de Músicas** explora como bancos de dados orientados a grafos e algoritmos de **Graph Data Science (GDS)** podem ser utilizados na construção de sistemas de recomendação.
+
+O projeto modela relacionamentos entre:
+
+- usuários;
+- músicas;
+- artistas;
+- gêneros;
+- histórico e padrões de escuta.
+
+A partir dessa rede, diferentes sinais são explorados para gerar recomendações, incluindo:
+
+- **Jaccard Similarity** para similaridade;
+- **Louvain** para detecção de comunidades;
+- **PageRank** para análise de centralidade;
+- **Shortest Paths** para conexões indiretas;
+- combinação desses sinais em uma abordagem de **recomendação híbrida**.
+
+O resultado é uma aplicação prática de **Graph Analytics + Recommendation Systems** em um domínio diretamente relacionado ao consumo musical.
 
 ---
 
 ## 🎯 Objetivo
 
-Explorar como bancos de dados orientados a grafos e algoritmos de Graph Data Science 
-podem ser utilizados para construir sistemas de recomendação musical.
+O objetivo é demonstrar como relacionamentos presentes em dados de comportamento podem ser transformados em sinais para recomendação.
 
-O projeto trabalha conceitos como:
+O projeto investiga questões como:
 
-- Graph Databases
-- Neo4j
-- Cypher
-- Graph Data Science
-- Recommendation Systems
-- Similaridade entre usuários
-- Detecção de comunidades
-- Centralidade
-- Caminhos em grafos
-- Recomendação híbrida
+- Quais usuários possuem gostos musicais semelhantes?
+- Quais comunidades surgem a partir dos padrões de relacionamento?
+- Quais entidades possuem maior relevância estrutural na rede?
+- Como conexões indiretas podem revelar novas músicas?
+- Como combinar diferentes sinais do grafo para gerar recomendações?
 
 ---
 
 ## 🧠 Por que Grafos para Recomendação?
 
-Sistemas de recomendação trabalham fundamentalmente com **relações**.
+Sistemas de recomendação trabalham fundamentalmente com **relacionamentos**.
 
-Em um contexto musical :
+Em um cenário musical:
 
 ```text
 Usuário
-   ↓
-OUVIU
-   ↓
-Música
-   ↓
-PERTENCE_A
-   ↓
-Gênero
-
-Ao mesmo tempo:
-
-Usuário A
-   ↓
-OUVIU
-   ↓
-Música X
-   ↑
-OUVIU
-   ↑
-Usuário B
-
+   │
+   └── OUVIU ──> Música
+                   │
+                   ├── INTERPRETADA_POR ──> Artista
+                   │
+                   └── PERTENCE_A ────────> Gênero
 ```
 
-Essas conexões permitem identificar padrões de comportamento, similaridade entre 
-usuários e conteúdos relacionados.
+Ao mesmo tempo, usuários diferentes podem compartilhar músicas, artistas e gêneros:
+
+```text
+Usuário A ── OUVIU ──> Música X <── OUVIU ── Usuário B
+```
+
+Essas conexões criam sinais de afinidade.
+
+Em vez de analisar cada tabela isoladamente, o modelo em grafo permite percorrer diretamente os relacionamentos e investigar padrões de proximidade, similaridade, influência e comunidade.
 
 ---
 
 ## 🏗️ Arquitetura Conceitual
 
 ```text
-Usuários
-   ↓
-Histórico de Escuta
-   ↓
-Grafo Neo4j
-   ↓
-┌─────────────────────────────┐
-│ Graph Data Science          │
-│                             │
-│ • Jaccard Similarity        │
-│ • Louvain                   │
-│ • PageRank                  │
-│ • Shortest Paths            │
-└──────────────┬──────────────┘
-               ↓
-        Análise do Grafo
-               ↓
-     Geração de Candidatos
-               ↓
-      Recomendação Híbrida
-               ↓
-            Músicas
-
+Usuários + Músicas + Artistas + Gêneros
+                  │
+                  ▼
+            Grafo Neo4j
+                  │
+                  ▼
+       Consultas e Graph Analytics
+                  │
+       ┌──────────┼──────────┐
+       │          │          │
+       ▼          ▼          ▼
+   Jaccard     Louvain    PageRank
+       │          │          │
+       └──────────┼──────────┘
+                  │
+           Shortest Paths
+                  │
+                  ▼
+         Geração de Candidatos
+                  │
+                  ▼
+       Recomendação Híbrida
+                  │
+                  ▼
+          Ranking de Músicas
 ```
 
 ---
@@ -111,282 +115,466 @@ Grafo Neo4j
 ## 🕸️ Visualização do Grafo
 
 <p align="center">
-  <img src="./Algoritmo  de Recomendação de Música.png"
+  <img src="Assets/grafo-recomendacao-musical.png"
        alt="Grafo do Sistema de Recomendação Musical"
        width="850">
 </p>
 
-O grafo representa as conexões utilizadas para explorar padrões de consumo musical 
-e gerar recomendações.
+A visualização representa as conexões utilizadas para explorar padrões de consumo musical e gerar candidatos para recomendação.
 
 ---
 
-## 🔬 Algoritmos Utilizados
+# 🔬 Estratégias e Algoritmos
 
-👥 Jaccard Similarity
+## 1. 🔎 Queries Básicas de Recomendação
 
-A similaridade de Jaccard é utilizada para explorar o grau de similaridade entre 
-usuários a partir de elementos compartilhados.
-
-No contexto do projeto, essa abordagem permite investigar usuários com padrões 
-de consumo musical semelhantes.
-
-Arquivo :
-
-`Similaridade entre Usuários (Jaccard Similarity).cypher`
-
-🧩 Louvain Community Detection
-
-O algoritmo **Louvain** permite identificar comunidades dentro de um grafo.
-
-Em sistemas de recomendação, comunidades podem revelar grupos de usuários ou 
-entidades com padrões de relacionamento semelhantes.
-
-Arquivo :
-
-`Detecção de Comunidades (Louvain).cypher`
-
-⭐ PageRank
-
-O **PageRank** explora a importância relativa dos nós considerando sua estrutura 
-de conexões.
-
-No contexto musical, métricas de centralidade podem ajudar a analisar a relevância 
-estrutural de determinados elementos dentro do grafo.
+As primeiras consultas exploram relações diretas do grafo para encontrar músicas e entidades relacionadas às preferências de um usuário.
 
 Arquivo:
 
-`Algoritmos GDS - PageRank.cypher`
+[`Queries/02-queries-basicas.cypher`](Queries/02-queries-basicas.cypher)
 
-🛣️ Shortest Paths
-
-A análise de caminhos permite explorar conexões indiretas existentes no grafo.
-
-Essas conexões podem revelar relações que não seriam imediatamente evidentes em 
-uma análise baseada apenas em relações diretas.
-
-Arquivo :
-
-`Caminhos Mais Curtos (Recomendação por Conexões Indiretas).cypher`
+Essa etapa estabelece uma baseline conceitual antes da aplicação dos algoritmos de Graph Data Science.
 
 ---
 
-# 🎯 Sistema de Recomendação
+## 2. 👥 Jaccard Similarity
 
-O projeto explora diferentes sinais provenientes do grafo para construir recomendações.
+A **Similaridade de Jaccard** permite comparar conjuntos de elementos compartilhados entre usuários.
 
-Uma estratégia conceitual pode ser representada por :
+Conceitualmente:
+
+```text
+Usuário A → músicas ouvidas
+             ∩
+Usuário B → músicas ouvidas
+             ↓
+        Similaridade
+```
+
+Usuários que compartilham maior quantidade de preferências podem fornecer sinais relevantes para recomendação colaborativa.
+
+Arquivo:
+
+[`Queries/03-jaccard-similarity.cypher`](Queries/03-jaccard-similarity.cypher)
+
+### Aplicações
+
+- identificação de usuários semelhantes;
+- collaborative recommendation;
+- descoberta de afinidades;
+- geração de candidatos.
+
+---
+
+## 3. 🧩 Louvain Community Detection
+
+O algoritmo **Louvain** é utilizado para identificar comunidades na estrutura do grafo.
+
+Essas comunidades podem representar grupos de usuários ou entidades conectados por padrões semelhantes.
+
+Arquivo:
+
+[`Queries/04-louvain.cypher`](Queries/04-louvain.cypher)
+
+### Aplicações
+
+- segmentação comportamental;
+- descoberta de grupos;
+- identificação de nichos musicais;
+- recomendação baseada em comunidade.
+
+---
+
+## 4. ⭐ PageRank
+
+O **PageRank** mede a importância estrutural dos nós considerando não apenas a quantidade de conexões, mas também a relevância das entidades conectadas.
+
+Arquivo:
+
+[`Queries/05-pagerank.cypher`](Queries/05-pagerank.cypher)
+
+### Aplicações
+
+- identificação de entidades relevantes;
+- ranking;
+- popularidade estrutural;
+- priorização de candidatos.
+
+---
+
+## 5. 🛣️ Shortest Paths
+
+A análise de **caminhos mais curtos** permite explorar conexões indiretas entre elementos do grafo.
+
+Arquivo:
+
+[`Queries/06-shortest-paths.cypher`](Queries/06-shortest-paths.cypher)
+
+Uma recomendação pode surgir, por exemplo, de uma sequência de afinidades:
+
+```text
+Usuário
+   ↓
+Música conhecida
+   ↓
+Artista
+   ↓
+Gênero
+   ↓
+Outra música
+```
+
+### Aplicações
+
+- descoberta de conteúdo;
+- explicabilidade;
+- relações indiretas;
+- exploração de catálogo.
+
+---
+
+# 🎯 Sistema de Recomendação Híbrido
+
+O estágio final combina diferentes sinais encontrados no grafo.
 
 ```text
 Preferências do Usuário
-        +
+          +
 Similaridade entre Usuários
-        +
+          +
 Comunidades
-        +
+          +
 Centralidade
-        +
+          +
 Conexões Indiretas
-        ↓
-Combinação dos Sinais
-        ↓
-Ranking
-        ↓
-Recomendação
+          ↓
+   Combinação dos Sinais
+          ↓
+    Ranking de Candidatos
+          ↓
+       Recomendação
 ```
 
-O repositório inclui uma implementação específica destinada à exploração dessa 
-abordagem:
+Arquivo:
 
-`Sistema de Recomendação Completo (Híbrido).cypher`
+[`Queries/07-recomendacao-hibrida.cypher`](Queries/07-recomendacao-hibrida.cypher)
+
+A abordagem híbrida é particularmente interessante porque evita depender de um único critério.
+
+Uma música pode se tornar uma boa candidata porque:
+
+- usuários semelhantes a escutaram;
+- pertence a uma comunidade relacionada;
+- possui relevância estrutural;
+- está conectada indiretamente às preferências existentes.
 
 ---
 
-## 🔄 Pipeline
+## 🔄 Pipeline Analítico
 
 ```text
-Dados
-  ↓
+Dados de Exemplo
+      ↓
 Schema do Grafo
-  ↓
+      ↓
 Nós + Relacionamentos
-  ↓
+      ↓
 Neo4j
-  ↓
-Consultas Cypher
-  ↓
+      ↓
+Cypher
+      ↓
 Graph Data Science
-  ↓
-┌───────────────────────────┐
-│ Similaridade              │
-│ Comunidades               │
-│ Centralidade              │
-│ Caminhos                  │
-└─────────────┬─────────────┘
-              ↓
-       Recommendation
-              ↓
-           Ranking
-              ↓
-           Músicas
+      ↓
+┌───────────────────────┐
+│ Similaridade          │
+│ Comunidades           │
+│ Centralidade          │
+│ Caminhos              │
+└───────────┬───────────┘
+            ↓
+   Geração de Candidatos
+            ↓
+   Recomendação Híbrida
+            ↓
+          Ranking
+            ↓
+          Músicas
 ```
+
+---
+
+## 🗃️ Schema e Dados de Exemplo
+
+O grafo utilizado nas análises pode ser criado a partir do arquivo:
+
+[`Queries/01-schema-dados-exemplo.cypher`](Queries/01-schema-dados-exemplo.cypher)
+
+Ele fornece a estrutura necessária para executar as consultas e algoritmos apresentados no projeto.
+
+O repositório também preserva o artefato JSON relacionado ao desenvolvimento:
+
+[`Data/algoritmo-recomendacao-musicas.json`](Data/algoritmo-recomendacao-musicas.json)
+
 ---
 
 ## 🛠️ Tecnologias
 
-
-**Neo4j** - Banco de dados orientado a grafos
-
-**Cypher** - Modelagem e consultas
-
-**Neo4j GDS** - Algoritmos de Graph Data Science
-
-**PageRank** - Análise de centralidade
-
-**Louvain** - Detecção de comunidades 
-
-**Jaccard Similarity** - Similaridade
-
-**Shortest Paths** - Análise de conexões indiretas
-
-**Git** - Versionamento
-
-**GitHub** - Repositório e documentação
+| Tecnologia | Aplicação |
+|---|---|
+| **Neo4j** | Banco de dados orientado a grafos |
+| **Cypher** | Modelagem e consultas |
+| **Neo4j GDS** | Graph Data Science |
+| **Jaccard Similarity** | Similaridade entre usuários |
+| **Louvain** | Detecção de comunidades |
+| **PageRank** | Centralidade e relevância estrutural |
+| **Shortest Paths** | Análise de conexões indiretas |
+| **Git** | Versionamento |
+| **GitHub** | Repositório e documentação |
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📂 Estrutura do Repositório
 
 ```text
 Algoritmo-Que-Recomenda-Musicas/
 │
-├── Schema e Dados de Exemplo.cypher
-├── Queries Básicas Para Recomendação.cypher
-├── Similaridade entre Usuários (Jaccard Similarity).cypher
-├── Detecção de Comunidades (Louvain).cypher
-├── Algoritmos GDS - PageRank.cypher
-├── Caminhos Mais Curtos (Recomendação por Conexões Indiretas).cypher
-├── Sistema de Recomendação Completo (Híbrido).cypher
-├── Algoritmo de Recomendação de Músicas.json
-├── Algoritmo de Recomendação de Música.png
+├── Assets/
+│   └── grafo-recomendacao-musical.png
+│
+├── Data/
+│   └── algoritmo-recomendacao-musicas.json
+│
+├── Queries/
+│   ├── 01-schema-dados-exemplo.cypher
+│   ├── 02-queries-basicas.cypher
+│   ├── 03-jaccard-similarity.cypher
+│   ├── 04-louvain.cypher
+│   ├── 05-pagerank.cypher
+│   ├── 06-shortest-paths.cypher
+│   └── 07-recomendacao-hibrida.cypher
+│
 └── README.md
 ```
+
+A separação entre `Assets`, `Data` e `Queries` mantém os artefatos organizados de acordo com sua finalidade.
+
 ---
 
-## ▶️ Como Executar
+# ▶️ Como Executar
 
-### Pré-requisitos
+## Pré-requisitos
 
 - Neo4j
 - Neo4j Graph Data Science Library
-- Ambiente capaz de executar consultas Cypher
+- ambiente capaz de executar consultas Cypher
 
-1. Clone o projeto
+### 1. Clone o projeto
 
+```bash
 git clone https://github.com/MCLG1661/Algoritmo-Que-Recomenda-Musicas.git
+cd Algoritmo-Que-Recomenda-Musicas
+```
 
-2. Crie o grafo
-
-Execute:
-
-`Schema e Dados de Exemplo.cypher`
-
-3. Explore as consultas básicas
+### 2. Crie o grafo
 
 Execute:
 
-`Queries Básicas Para Recomendação.cypher`
+```text
+Queries/01-schema-dados-exemplo.cypher
+```
 
-4. Explore os algoritmos
-
-Execute individualmente os arquivos correspondentes a:
-
-- Jaccard Similarity
-- Louvain
-- PageRank
-- Shortest Paths
-
-5. Explore a abordagem híbrida
+### 3. Explore as consultas básicas
 
 Execute:
 
-`Sistema de Recomendação Completo (Híbrido).cypher`
+```text
+Queries/02-queries-basicas.cypher
+```
+
+### 4. Explore os algoritmos
+
+Execute individualmente:
+
+```text
+Queries/03-jaccard-similarity.cypher
+Queries/04-louvain.cypher
+Queries/05-pagerank.cypher
+Queries/06-shortest-paths.cypher
+```
+
+### 5. Execute a abordagem híbrida
+
+Por fim:
+
+```text
+Queries/07-recomendacao-hibrida.cypher
+```
+
+---
+
+## 💼 Aplicações de Negócio
+
+Embora o domínio utilizado seja música, os conceitos demonstrados podem ser aplicados a diversos cenários.
+
+### Streaming e entretenimento
+
+- recomendação musical;
+- descoberta de artistas;
+- criação de playlists;
+- personalização de catálogo.
+
+### E-commerce
+
+```text
+Cliente → Produto → Categoria → Cliente semelhante
+```
+
+### Marketing
+
+```text
+Consumidor → Conteúdo → Interesse → Segmento
+```
+
+### Social Media
+
+```text
+Usuário → Creator → Tema → Comunidade
+```
+
+### CRM
+
+```text
+Cliente → Produto → Comportamento → Próxima melhor oferta
+```
+
+O ponto central é utilizar **relações entre entidades como fonte de inteligência para recomendação e personalização**.
 
 ---
 
 ## 💡 Competências Demonstradas
 
+### Graph Data
+
 - Neo4j
 - Cypher
 - Graph Databases
+- Graph Data Modeling
 - Graph Data Science
-- Recommendation Systems
-- Similarity Analysis
+- Network Analysis
+
+### Algoritmos
+
+- Jaccard Similarity
+- Louvain
+- PageRank
+- Shortest Paths
 - Community Detection
-- Centrality Algorithms
-- Path Finding
-- Data Modeling
-- Sistemas de recomendação baseados em grafos
-- Análise de relacionamentos
-- NoSQL
-- Git e GitHub
+- Centrality Analysis
+- Similarity Analysis
+
+### Recommendation Systems
+
+- geração de candidatos;
+- similaridade entre usuários;
+- recomendação baseada em comunidade;
+- ranking;
+- recomendação híbrida;
+- exploração de conexões indiretas.
+
+### Engenharia
+
+- NoSQL;
+- organização de queries;
+- Git;
+- GitHub;
+- documentação técnica.
 
 ---
 
 ## 🚀 Possíveis Evoluções
 
-O projeto pode evoluir incorporando:
+O projeto pode evoluir em diferentes direções.
 
-- Dataset musical de maior escala
-- Dados reais de interação
-- Embeddings
-- Node Similarity
-- K-Nearest Neighbors
-- Collaborative Filtering
-- Content-Based Filtering
-- Machine Learning
-- Graph Embeddings
-- FastAPI
-- Interface web
-- Avaliação das recomendações
-- Precision@K
-- Recall@K
-- NDCG
-- Personalização em tempo real
+### Dados
 
-Uma evolução particularmente interessante seria comparar o sistema baseado em 
-grafos com métodos tradicionais de Collaborative Filtering.
+- dataset musical de maior escala;
+- histórico real de interação;
+- quantidade de reproduções;
+- likes e skips;
+- playlists;
+- contexto temporal.
+
+### Graph Data Science
+
+- Node Similarity;
+- K-Nearest Neighbors;
+- FastRP;
+- Node Embeddings;
+- Link Prediction;
+- Graph Machine Learning.
+
+### Recommendation Systems
+
+- Collaborative Filtering;
+- Content-Based Filtering;
+- comparação entre métodos;
+- personalização em tempo real.
+
+### Avaliação
+
+Implementação de métricas como:
+
+- Precision@K;
+- Recall@K;
+- NDCG;
+- Hit Rate;
+- Coverage.
+
+### Produto
+
+Uma evolução natural seria transformar o projeto em uma aplicação completa:
+
+```text
+Neo4j
+   ↓
+Recommendation Engine
+   ↓
+API
+   ↓
+FastAPI
+   ↓
+Interface
+   ↓
+Streamlit / Web App
+```
+
+---
+
+## ⚠️ Limitações
+
+O projeto possui finalidade **educacional e demonstrativa**.
+
+O grafo utiliza dados de exemplo para explorar técnicas de Graph Data Science e sistemas de recomendação.
+
+Consequentemente:
+
+- os resultados não representam recomendações de uma plataforma musical em produção;
+- não existe avaliação offline ou online das recomendações;
+- o volume de dados é limitado;
+- o projeto demonstra conceitos e arquitetura, não um recommendation engine em escala comercial.
+
+Essas limitações também indicam caminhos claros para evolução futura.
 
 ---
 
 ## 🎓 Contexto Acadêmico
 
-Projeto desenvolvido como desafio final da disciplina **Primeiros Passos com Cypher 
-e Neo4j**, integrante do **Bootcamp Neo4j — Análise de Dados com Grafos**, da DIO.
+Projeto desenvolvido como desafio da disciplina **Primeiros Passos com Cypher e Neo4j**, integrante do **Bootcamp Neo4j — Análise de Dados com Grafos**, da DIO.
 
 **Professor:** Matheus Ferreira  
 **Período:** Primeiro semestre de 2026  
 **Entrega:** 12/03/2026
-
----
-
-## 🤝 Como Contribuir
-
-Contribuições são bem-vindas, especialmente nas áreas de:
-
-- Graph Data Science
-- Recommendation Systems
-- Cypher
-- Algoritmos de similaridade
-- Graph Machine Learning
-- Avaliação de recomendações
-
-1. Faça um Fork do projeto
-2. Crie uma branch para sua funcionalidade
-3. Implemente e teste as alterações
-4. Faça o commit
-5. Envie sua branch
-6. Abra um Pull Request descrevendo a melhoria
 
 ---
 
@@ -396,11 +584,11 @@ Contribuições são bem-vindas, especialmente nas áreas de:
 
 Marketing | Data Science | Inteligência Artificial | Gestão de Projetos
 
-GitHub: MCLG1661  
-LinkedIn: Marcus Guedes
+- **GitHub:** [MCLG1661](https://github.com/MCLG1661)
+- **LinkedIn:** [Marcus Guedes](SEU-LINK-DO-LINKEDIN)
 
 ---
 
-🎵 **Transformando conexões entre usuários e músicas em recomendações.** 
+⭐ Se este projeto foi útil como referência para Graph Analytics ou Recommendation Systems, considere deixar uma estrela no repositório.
 
-
+🎵 **Transformando conexões entre usuários e músicas em recomendações.**
