@@ -14,11 +14,12 @@ CALL gds.graph.project(
 // 3.2 Executar PageRank para identificar músicas populares
 CALL gds.pageRank.stream('musicGraph')
 YIELD nodeId, score
-RETURN gds.util.asNode(nodeId).title AS MusicTitle,
-       gds.util.asNode(nodeId).name AS NodeName,
-       labels(gds.util.asNode(nodeId)) AS Type,
+WITH gds.util.asNode(nodeId) AS node, score
+WHERE node:Music
+RETURN node.title AS MusicTitle,
+       node.name AS NodeName,
+       labels(node) AS Type,
        score AS PageRankScore
-WHERE gds.util.asNode(nodeId):Music
 ORDER BY PageRankScore DESC
 LIMIT 10;
 
@@ -28,8 +29,7 @@ YIELD nodeId, score
 WITH gds.util.asNode(nodeId) AS node, score
 WHERE node:Music
 MATCH (u:User {name: 'João'})
-OPTIONAL MATCH (u)-[:LISTENED|LIKED]-(node)
-WHERE node IS NULL
+WHERE NOT EXISTS { MATCH (u)-[:LISTENED|LIKED]->(node) }
 RETURN node.title AS RecommendedMusic,
        score AS PopularityScore
 ORDER BY PopularityScore DESC

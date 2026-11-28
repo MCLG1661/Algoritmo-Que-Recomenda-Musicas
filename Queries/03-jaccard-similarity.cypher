@@ -26,7 +26,7 @@ WITH u1, u2, intersection,
 
 RETURN u2.name AS SimilarUser,
        intersection * 1.0 / union AS JaccardSimilarity
-ORDER BY JaccardSimilarity DESC
+ORDER BY JaccardSimilarity DESC, SimilarUser
 LIMIT 3;
 
 // 4.3 Recomendação baseada em usuários similares
@@ -48,11 +48,13 @@ WITH u1, u2, intersection,
 
 WHERE union > 0
 WITH u1, u2, intersection * 1.0 / union AS similarity, set2
-ORDER BY similarity DESC
+ORDER BY similarity DESC, u2.name
 LIMIT 1
 
 UNWIND set2 AS recommendedMusic
-WHERE NOT EXISTS((u1)-[:LISTENED|LIKED]->(recommendedMusic))
+WITH u1, similarity, recommendedMusic
+WHERE NOT EXISTS { MATCH (u1)-[:LISTENED|LIKED]->(recommendedMusic) }
 RETURN DISTINCT recommendedMusic.title AS RecommendedMusic,
        similarity AS UserSimilarity
+ORDER BY RecommendedMusic
 LIMIT 5;
