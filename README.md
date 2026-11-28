@@ -32,7 +32,7 @@ A partir dessa rede, diferentes sinais são explorados para gerar recomendaçõe
 - **Louvain** para detecção de comunidades;
 - **PageRank** para análise de centralidade;
 - **Shortest Paths** para conexões indiretas;
-- combinação desses sinais em uma abordagem de **recomendação híbrida**.
+- **recomendação híbrida** combinando usuários com músicas em comum, artistas seguidos e PageRank.
 
 O resultado é uma aplicação prática de **Graph Analytics + Recommendation Systems** em um domínio diretamente relacionado ao consumo musical.
 
@@ -91,23 +91,9 @@ Usuários + Músicas + Artistas + Gêneros
                   ▼
        Consultas e Graph Analytics
                   │
-       ┌──────────┼──────────┐
-       │          │          │
-       ▼          ▼          ▼
-   Jaccard     Louvain    PageRank
-       │          │          │
-       └──────────┼──────────┘
-                  │
-           Shortest Paths
-                  │
-                  ▼
-         Geração de Candidatos
-                  │
-                  ▼
-       Recomendação Híbrida
-                  │
-                  ▼
-          Ranking de Músicas
+       ├── Consultas exploratórias: Jaccard, Louvain e caminhos curtos
+       └── Ranking híbrido: usuários com músicas em comum,
+                           artistas seguidos e PageRank
 ```
 
 ---
@@ -175,7 +161,7 @@ Essas comunidades podem representar grupos de usuários ou entidades conectados 
 
 Arquivo:
 
-[`Queries/04-louvain.cypher`](Queries/04-louvain.cypher)
+[`Queries/04-Louvain.cypher`](Queries/04-Louvain.cypher)
 
 ### Aplicações
 
@@ -239,21 +225,11 @@ Outra música
 O estágio final combina diferentes sinais encontrados no grafo.
 
 ```text
-Preferências do Usuário
-          +
-Similaridade entre Usuários
-          +
-Comunidades
-          +
-Centralidade
-          +
-Conexões Indiretas
-          ↓
-   Combinação dos Sinais
-          ↓
-    Ranking de Candidatos
-          ↓
-       Recomendação
+Usuários com músicas em comum + Artistas seguidos + PageRank
+                            ↓
+                  Combinação ponderada
+                            ↓
+              Ranking de músicas novas para o usuário
 ```
 
 Arquivo:
@@ -265,9 +241,10 @@ A abordagem híbrida é particularmente interessante porque evita depender de um
 Uma música pode se tornar uma boa candidata porque:
 
 - usuários semelhantes a escutaram;
-- pertence a uma comunidade relacionada;
-- possui relevância estrutural;
-- está conectada indiretamente às preferências existentes.
+- é interpretada por um artista seguido;
+- possui relevância estrutural segundo o PageRank.
+
+Louvain, Jaccard e caminhos curtos são explorados em consultas próprias. O ranking híbrido exclui músicas que o usuário já ouviu ou curtiu.
 
 ---
 
@@ -314,7 +291,7 @@ Ele fornece a estrutura necessária para executar as consultas e algoritmos apre
 
 O repositório também preserva o artefato JSON relacionado ao desenvolvimento:
 
-[`Data/algoritmo-recomendacao-musicas.json`](Data/algoritmo-recomendacao-musicas.json)
+[`Data/algoritmo-recomendação-musicas.json`](Data/algoritmo-recomendação-musicas.json)
 
 ---
 
@@ -343,13 +320,13 @@ Algoritmo-Que-Recomenda-Musicas/
 │   └── grafo-recomendacao-musical.png
 │
 ├── Data/
-│   └── algoritmo-recomendacao-musicas.json
+│   └── algoritmo-recomendação-musicas.json
 │
 ├── Queries/
 │   ├── 01-schema-dados-exemplo.cypher
 │   ├── 02-queries-basicas.cypher
 │   ├── 03-jaccard-similarity.cypher
-│   ├── 04-louvain.cypher
+│   ├── 04-Louvain.cypher
 │   ├── 05-pagerank.cypher
 │   ├── 06-shortest-paths.cypher
 │   └── 07-recomendacao-hibrida.cypher
@@ -378,7 +355,7 @@ cd Algoritmo-Que-Recomenda-Musicas
 
 ### 2. Crie o grafo
 
-Execute:
+Em um banco vazio dedicado à demonstração, execute uma vez:
 
 ```text
 Queries/01-schema-dados-exemplo.cypher
@@ -394,12 +371,12 @@ Queries/02-queries-basicas.cypher
 
 ### 4. Explore os algoritmos
 
-Execute individualmente:
+Em um banco de demonstração, execute as consultas individualmente nesta ordem. O arquivo de PageRank cria a projeção em memória `musicGraph`, reutilizada pelo Louvain e pela consulta híbrida. Crie cada projeção uma vez enquanto ela estiver registrada no catálogo em memória do GDS.
 
 ```text
 Queries/03-jaccard-similarity.cypher
-Queries/04-louvain.cypher
 Queries/05-pagerank.cypher
+Queries/04-Louvain.cypher
 Queries/06-shortest-paths.cypher
 ```
 
